@@ -16,15 +16,6 @@ public class WebAppInitializer implements WebApplicationInitializer{
 		rootContext.register(RootConfig.class);
 		servletContext.addListener(new ContextLoaderListener(rootContext));
 		
-		AnnotationConfigWebApplicationContext adminContext = new AnnotationConfigWebApplicationContext();
-		adminContext.setParent(rootContext);
-		adminContext.register(AdminConfig.class);
-		
-		
-		AnnotationConfigWebApplicationContext authContext = new AnnotationConfigWebApplicationContext();
-		authContext.setParent(rootContext);
-		authContext.register(AuthConfig.class);
-		
 		ServletRegistration.Dynamic rootServlet = servletContext.addServlet("dispatcher", new DispatcherServlet(rootContext));
 		rootServlet.setLoadOnStartup(1);
 		rootServlet.addMapping("/");

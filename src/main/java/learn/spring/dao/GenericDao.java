@@ -12,6 +12,6 @@ public interface GenericDao<T extends BaseModel> {
 	void removeById(long id);
 	T getById(long id);
 	List<T> getAllUsers();
-	
-	
+	public void setClazz(Class<T> clazz);
+		
 }

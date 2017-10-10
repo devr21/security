@@ -12,12 +12,15 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity
 @Table(name="user_info")
 public class UserInfo implements BaseModel{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4025774293295301056L;
 	@Column(name="username")
 	private String username;
 	@Column(name="password")

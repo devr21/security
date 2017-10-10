@@ -19,13 +19,14 @@ public class SecureWebAppConfig extends WebSecurityConfigurerAdapter{
 		
 		http
 			.authorizeRequests()
-				.antMatchers("/","/auth").permitAll()
+				.antMatchers("/").permitAll()
+				.antMatchers("/auth/").authenticated()
 				.antMatchers("/admin").hasRole("ADMIN")
 				.and()
 			.formLogin()
-				.loginPage("/auth/")
+				.loginPage("/login")
 				.loginProcessingUrl("/perform_login")
-		        .failureUrl("/auth?error=true")
+		        .failureUrl("/login?error=true")
 		        .and()
 		    .logout()
 		        .logoutUrl("/perform_logout")
